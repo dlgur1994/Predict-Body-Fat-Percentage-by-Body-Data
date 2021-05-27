@@ -11,7 +11,7 @@ from lightgbm import LGBMRegressor
 
 # File load
 #index는 dataframe변환시 주어지고, 표준몸무게는 키로 정해지므로 삭제
-file_df = pd.read_csv('C:/Users/onesoftdigm/Documents/data/body_fat_train_data_age.csv')
+file_df = pd.read_csv('body_fat_train_data.csv')
 # file_df = train_df
 target_name = 'Body_Fat_Rate'
 no_need_features = ['Index', 'Standard_Weight']
@@ -51,7 +51,7 @@ model.fit(X_train, y_train)
 
 # File load
 #index는 dataframe변환시 주어지고, 표준몸무게는 키로 정해지므로 삭제
-test_df = pd.read_csv('C:/Users/onesoftdigm/Documents/data/body_fat_test_data_age.csv')
+test_df = pd.read_csv('body_fat_test_data.csv')
 print(test_df)
 
 # feature값 정리
