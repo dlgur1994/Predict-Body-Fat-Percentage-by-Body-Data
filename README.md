@@ -16,12 +16,15 @@
 ## 4. Data
 - format: .csv<br/>
 - distribution
+
 |Data|Numbers|Ratio|
 |---|---|---|
 |train|684|0.8|
 |test|169|0.2|
 |total|853|1|
+
 - example
+
 |Index|Age|Sex|Volt|Height|Weight|Standard_Weight|Body_Fat_Rate|
 |---|---|---|---|---|---|---|---|
 |0|23|0|1.35|167|62.8|60.3|31.9
