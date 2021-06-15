@@ -8,14 +8,13 @@ It is a program that uses simple body data to predict body fat rates, and uses m
 
 ## 3. Installation
 - xgboost<br/>
-    !pip install xgboost<br/>
-    !brew install libomp
+        !pip install xgboost<br/>
+        !brew install libomp
 - lightgbm<br/>
-    !pip install lightgbm
+        !pip install lightgbm
 
 ## 4. Data
-- format<br/>
-    .csv
+- format: .csv
 - distribution
 |Data|Numbers|Ratio|
 |---|---|---|
