@@ -31,6 +31,8 @@
 > |1|20|1|1.15|183|75.1|74.7|12.6
 
 ## 5. Results
+- 'Random Forest' shows the best performance.
+
 |Model|MAE|MSE|RMSE|RMSLE|R2|
 |---|---|---|---|---|---|
 |Linear|2.902|3.731|13.920|2.902|0.158|
