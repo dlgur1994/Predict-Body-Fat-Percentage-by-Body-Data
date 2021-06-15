@@ -1,5 +1,5 @@
 ## 1. About
-    It is a program that uses simple body data to predict body fat rates, and uses machine learning techniques.
+It is a program that uses simple body data to predict body fat rates, and uses machine learning techniques.
 
 ## 2. Environment
 - Mac OS
