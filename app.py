@@ -21,17 +21,15 @@ def predict():
         sex_1 = 0
         sex_0 = 1
     volt = float(request.form['volt'])
-    height = float(request.form['height'])
+    height = int(request.form['height'])
     weight = float(request.form['weight'])
 
-    data_list = [(age, sex_0, sex_1, volt, height, weight)]
-    X_test = pd.DataFrame(data_list, columns = ['Age', 'Sex_0', 'Sex_1', 'Volt', 'Height', 'Weight'])
-    predict_value = model.predict(X_test)
-    # predict_final = round(np.expm1(predict_value),1)
-    predict_final = np.expm1(predict_value)
-    return render_template('predict.html', prediction_text='{}'.format(predict_final))
+    data = [(age, volt, height, weight, sex_0, sex_1)]
+    X_test = pd.DataFrame(data, columns = ['Age', 'Volt', 'Height', 'Weight', 'Sex_0', 'Sex_1'])
+    predict_value = np.round(model.predict(X_test),1)[0]
+    return render_template('predict.html', prediction_text='Predicted value is {}%'.format(predict_value))
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8016)
-    # 실제 사용을 위해서는 호스트와 포트를 써줘야함
-    # app.run(debug=True, host='221.143.48.72', port=8017)
+    app.run(debug=True, port=5000)
+    # host and port must be used for actual use
+    # ex) app.run(debug=True, host='221.143.48.72', port=8017)

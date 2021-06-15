@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html >
   <head>
-    <meta charset="UTF-8">
     <title>Predict Body Fat</title>
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
 
-  <body style="background: #000;overflow:scroll;>
+  <body> 
     <div class="input";>
-      <h1>predict body fat</h1>
+      <h1>Predict Your Body Fat</h1>
         <form action="{{ url_for('predict')}}"method="post">
-          <input type="text" name="age" placeholder="Age" required="required" />
-          <input type="text" name="sex" placeholder="Sex(woman:0, man:1)" required="required" />
-          <input type="text" name="volt" placeholder="Volt(v)" required="required" />
-          <input type="text" name="height" placeholder="Height(cm)" required="required" />
-          <input type="text" name="weight" placeholder="Weight(kg)" required="required" />
-          <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+          <input type="text" name="age" placeholder="Age" required="required" style="width:100px;height:30px;font-size:20px;" />
+          <input type="text" name="sex" placeholder="Sex(woman:0, man:1)" required="required" style="width:200px;height:30px;font-size:20px;" />
+          <input type="text" name="volt" placeholder="Volt(v)" required="required" style="width:100px;height:30px;font-size:20px;" />
+          <input type="text" name="height" placeholder="Height(cm)" required="required" style="width:100px;height:30px;font-size:20px;" />
+          <input type="text" name="weight" placeholder="Weight(kg)" required="required" style="width:100px;height:30px;font-size:20px;" />
+          <button type="submit" style="width:150px;height:36px;font-size:20px;" >Predict</button>
         </form>
     </div>
   </body>

@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import skew
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.linear_model import LinearRegression , Ridge , Lasso, ElasticNet
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.tree import DecisionTreeRegressor
@@ -20,9 +20,9 @@ def get_best_params(model, params):
 def get_model_predict(model, X_train, X_test, y_train, y_test):
     model.fit(X_train, y_train)
     pred = model.predict(X_test)
-    # scale back by expm1() because the predicted result is predicted by log-translated data
-    y_test = np.expm1(y_test)
-    pred = np.expm1(pred)
+    # scale back by expm1() if the predicted result is predicted by log-translated data
+    # y_test = np.expm1(y_test)
+    # pred = np.expm1(pred)
     print('\n###',model.__class__.__name__,'###')
     evaluate_regr(y_test, pred)
 
@@ -123,24 +123,26 @@ y_target.drop(outlier_index, axis=0, inplace=True)
 # print('X_feature shape after Outlier is removed:', X_features.shape)
 
 # figure out the extent of distortion in features --> if the degree of distortion is high(>1 or <-1), log transformation is performed.
-# 'Height' needs the log transformation
-features_index = file_df.drop(category_features, axis=1, inplace=False).dtypes.index
-skew_features = file_df[features_index].apply(lambda x : skew(x))
+# there's nothing to change here
+non_category_features_index = X_features.drop(category_features, axis=1, inplace=False).dtypes.index
+skew_features = X_features[non_category_features_index].apply(lambda x : skew(x))
 # print(skew_features.sort_values(ascending=False))
-skew_features_change = skew_features[skew_features < -1]
-file_df[skew_features_change.index] = np.log1p(file_df[skew_features_change.index])
+skew_features_need_change = skew_features[skew_features < -1]
+X_features[skew_features_need_change.index] = np.log1p(X_features[skew_features_need_change.index])
+# print(skew_features_need_change)
 
 # change the category feature to One-Hot Encoding --> 'Sex'
 X_features_ohe = pd.get_dummies(X_features, columns=category_features)
 # print(X_features_ohe)
 
-# the log transformation is applied on the target column to form a normal distribution
+# if the log transformation is applied, the target column also needs to be normal distribution
+# there's nothing to change here
 y_target_log = np.log1p(y_target)
 # print(y_target)
 # print(y_target_log)
 
 # split train/test data based on feature dataset with One-Hot encoding
-X_train, X_test, y_train, y_test = train_test_split(X_features_ohe, y_target_log, test_size=0.2, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(X_features_ohe, y_target, test_size=0.2, random_state=0)
 
 # define the model
 lr_reg = LinearRegression()
@@ -149,9 +151,9 @@ lasso_reg = Lasso(alpha=0.05)
 en_reg = ElasticNet(alpha=0.07)
 dt_reg = DecisionTreeRegressor(max_depth=7)
 rf_reg = RandomForestRegressor(max_depth=14, min_samples_leaf=2, min_samples_split=2, n_estimators=700, n_jobs=-1)
-gbm_reg = GradientBoostingRegressor(n_estimators=500, learning_rate=0.02, subsample=0.05)
-xgb_reg = XGBRegressor(n_estimators=120, eta=0.1, min_child_weight=3, max_depth=3)
-lgbm_reg = LGBMRegressor(n_estimators=1000, learning_rate=0.03, max_depth=3, min_child_samples=10, num_leaves=3)
+gbm_reg = GradientBoostingRegressor(learning_rate=0.02, n_estimators=500, subsample=0.05)
+xgb_reg = XGBRegressor(eta=0.1, min_child_weight=3, max_depth=3, n_estimators=120)
+lgbm_reg = LGBMRegressor(learning_rate=0.03, max_depth=3, min_child_samples=10, n_estimators=1000, num_leaves=3)
 
 # find best parameters
 # ridge_params = { 'alpha':[0.01, 0.05, 0.09, 0.1, 0.11, 0.12, 0.5, 1, 3, 5, 8, 10, 12, 15, 20, 30, 40, 50]}
