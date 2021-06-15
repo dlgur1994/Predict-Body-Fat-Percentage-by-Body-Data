@@ -52,6 +52,6 @@
 - access to the web
     - localhost:5000
 - Screenshots
-    - ![ex_screenshot0](./screenshots/0.png)
-    - ![ex_screenshot1](./screenshots/1.png)
-    - ![ex_screenshot2](./screenshots/2.png)
+    ![ex_screenshot0](./screenshots/0.png)
+    ![ex_screenshot1](./screenshots/1.png)
+    ![ex_screenshot2](./screenshots/2.png)
