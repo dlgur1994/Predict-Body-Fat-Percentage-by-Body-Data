@@ -40,3 +40,15 @@
 > |Gradient Boosting|2.341|9.700|3.114|0.134|0.847|
 > |XGB|2.329|9.581|3.095|0.130|0.849|
 > |LGM|2.578|11.477|3.388|0.141|0.820|
+
+## 6. Run on the Web
+- download files
+    - css/style.css 
+    - templates/index.html
+    - templates/predict.html
+- make the 'model.pkl' file
+    - python3 make_pkl.py
+- run the server
+    - python3 app.py
+- access to the web
+    - localhost:5000

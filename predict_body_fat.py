@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from scipy.stats import skew
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 # from sklearn.linear_model import LinearRegression, Ridge, Lasso
@@ -26,6 +27,14 @@ cond2 = file_df[target_name] < 30
 outlier_index = X_features[cond1 & cond2].index
 X_features.drop(outlier_index , axis=0, inplace=True)
 y_target.drop(outlier_index, axis=0, inplace=True)
+
+# figure out the extent of distortion in features --> if the degree of distortion is high(>1 or <-1), log transformation is performed.
+# 'Height' needs the log transformation
+features_index = file_df.drop(category_features, axis=1, inplace=False).dtypes.index
+skew_features = file_df[features_index].apply(lambda x : skew(x))
+# print(skew_features.sort_values(ascending=False))
+skew_features_change = skew_features[skew_features < -1]
+file_df[skew_features_change.index] = np.log1p(file_df[skew_features_change.index])
 
 # change the category feature to One-Hot Encoding --> 'Sex'
 X_features_ohe = pd.get_dummies(X_features, columns=category_features)
