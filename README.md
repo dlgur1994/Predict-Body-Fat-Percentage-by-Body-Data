@@ -7,19 +7,26 @@ It is a program that uses simple body data to predict body fat rates, and uses m
 - Conda 4.8.3
 
 ## 3. Installation
-- xgboost
+- xgboost<br/>
     !pip install xgboost<br/>
     !brew install libomp
-- lightgbm
+- lightgbm<br/>
     !pip install lightgbm
 
 ## 4. Data
+- format<br/>
+    .csv
+- distribution
 |Data|Numbers|Ratio|
 |---|---|---|
 |train|684|0.8|
-|test|169||0.2|
+|test|169|0.2|
 |total|853|1|
-- 데이터 파일 예시
+- example
+|Index|Age|Sex|Volt|Height|Weight|Standard_Weight|Body_Fat_Rate|
+|---|---|---|---|---|---|---|---|
+|0|23|0|1.35|167|62.8|60.3|31.9
+|1|20|1|1.15|183|75.1|74.7|12.6
 
 ## 5. Results
 - Random Forest
