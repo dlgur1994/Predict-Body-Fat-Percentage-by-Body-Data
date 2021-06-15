@@ -17,11 +17,11 @@
 - format: .csv<br/>
 - distribution
 
-|Data|Numbers|Ratio|
-|---|---|---|
-|train|684|0.8|
-|test|169|0.2|
-|total|853|1|
+>> |Data|Numbers|Ratio|
+>> |---|---|---|
+>> |train|684|0.8|
+>> |test|169|0.2|
+>> |total|853|1|
 
 - example
 
