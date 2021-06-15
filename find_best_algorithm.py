@@ -27,13 +27,13 @@ def get_model_predict(model, X_train, X_test, y_train, y_test):
     evaluate_regr(y_test, pred)
 
 # calculate MAE, MSE, RMSE, RMSLE
-def evaluate_regr(y,pred):
-    mae_val = mean_absolute_error(y,pred)
-    mse_val = mean_squared_error(y,pred)
-    rmse_val = rmse(y,pred)
+def evaluate_regr(y, pred):
+    mae_val = mean_absolute_error(y, pred)
+    mse_val = mean_squared_error(y, pred)
+    rmse_val = rmse(y, pred)
     rmsle_val = rmsle(y,pred)
     r2_val = r2_score(y, pred)
-    print('MAE: {0:.3F}, MSE: {2:.3F}, RMSE: {1:.3F}, RMSLE: {0:.3F}, R2: {3:.3F}'.format(mae_val, mse_val, rmse_val, rmsle_val, r2_val))
+    print('MAE: {0:.3F}, MSE: {1:.3F}, RMSE: {2:.3F}, RMSLE: {3:.3F}, R2: {4:.3F}'.format(mae_val, mse_val, rmse_val, rmsle_val, r2_val))
 
 # calculate RMSLE using log1p(), not log() because of the NaN issue 
 def rmsle(y, pred):
