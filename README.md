@@ -1,5 +1,5 @@
 ## 1. About
-It is a program that predicts body fat rate with simple body data using machine learning.
+- It is a program that predicts body fat rate with simple body data using machine learning.
 
 ## 2. Environment
 - Mac OS 10.14.6
@@ -8,10 +8,10 @@ It is a program that predicts body fat rate with simple body data using machine 
 
 ## 3. Installation
 - xgboost<br/>
-        !pip install xgboost<br/>
-        !brew install libomp
+    - !pip install xgboost<br/>
+    - !brew install libomp
 - lightgbm<br/>
-        !pip install lightgbm
+    - !pip install lightgbm
 
 ## 4. Data
 - format: .csv<br/>
