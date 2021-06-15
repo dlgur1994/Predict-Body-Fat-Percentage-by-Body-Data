@@ -1,8 +1,8 @@
 ## 1. About
-It is a program that uses simple body data to predict body fat rates, and uses machine learning techniques.
+It is a program that predicts body fat rate with simple body data using machine learning.
 
 ## 2. Environment
-- Mac OS
+- Mac OS 10.14.6
 - Python 3.8.3
 - Conda 4.8.3
 
