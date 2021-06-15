@@ -1,23 +1,26 @@
-# Predict_Body_Fat
-1. 개요
-- 신체 데이터로 체지방률 예측
+1. About
+> It is a program that uses simple body data to predict body fat rates, and uses machine learning techniques.
 
-2. 환경
-- 맥 os
-- 아나콘다
+2. Environment
+- Mac OS
+- Python 3.8.3
+- Conda 4.8.3
 
-3. 환경설정
+3. Installation
 - xgboost
-    !pip install xgboost
-    !brew install libomp
+>> !pip install xgboost
+>> !brew install libomp
 - lightgbm
-    !pip install lightgbm
+>> !pip install lightgbm
 
 4. Data
-train: 684
-test: 169
-total: 853
+|Data|Numbers|Ratio|
+|---|---|---|
+|train|684|0.8|
+|test|169||0.2|
+|total|853|1|
+- 데이터 파일 예시
 
-5. 결과
+5. Results
 - Random Forest
 - 선정 이유
