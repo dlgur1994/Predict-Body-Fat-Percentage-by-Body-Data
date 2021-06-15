@@ -14,7 +14,7 @@ It is a program that uses simple body data to predict body fat rates, and uses m
         !pip install lightgbm
 
 ## 4. Data
-- format: .csv
+- format: .csv<br/>
 - distribution
 |Data|Numbers|Ratio|
 |---|---|---|
