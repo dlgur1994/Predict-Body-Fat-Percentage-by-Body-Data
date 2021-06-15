@@ -1,5 +1,7 @@
+# Predict-Body-Fat-Percentage-by-Body-Data
+
 ## 1. About
-- It is a program that predicts body fat rate with simple body data using machine learning.
+- It is a program that predicts a body fat percentage with simple body data using machine learning.
 
 ## 2. Environment
 - Mac OS 10.14.6
