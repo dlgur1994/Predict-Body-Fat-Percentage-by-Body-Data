@@ -1,10 +1,11 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression, Ridge, Lasso
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from xgboost import XGBRegressor
-from lightgbm import LGBMRegressor
+from sklearn.ensemble import RandomForestRegressor
+# from sklearn.linear_model import LinearRegression, Ridge, Lasso
+# from sklearn.ensemble import GradientBoostingRegressor
+# from xgboost import XGBRegressor
+# from lightgbm import LGBMRegressor
 
 # train data file load
 # delete 'Index' because it is provided when converted to a data frame, and delete 'Standard_Weight' because it is determined by the hegith
