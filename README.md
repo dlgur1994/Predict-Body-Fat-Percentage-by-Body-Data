@@ -45,12 +45,12 @@
 
 ## 6. Run on the Web
 - download files
-    - templates/index.html
-    - templates/predict.html
+    - web/templates/index.html
+    - web/templates/predict.html
 - make the 'model.pkl' file
-    - python3 make_pkl.py
+    - python3 web/make_pkl.py
 - run the server
-    - python3 app.py
+    - python3 web/app.py
 - access to the web
     - localhost:5000
 - Screenshots
